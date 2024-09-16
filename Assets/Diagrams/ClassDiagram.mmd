@@ -1,0 +1,70 @@
+---
+title: Uno Card Game
+---
+classDiagram
+    class CardData{
+        string name
+        sprite image
+        bool CanPlay(CardData lastCardData)
+        void Play(CardData lastCardData)
+    }
+    <<Abstract>> CardData
+    
+    class NumberCardData{
+        CardColor color
+        int number
+    }
+    
+    class ReverseCardData{
+        CardColor color
+    }
+
+    class SkipCardData{
+        CardColor color
+    }
+
+    class DrawTwoCardData{
+        CardColor color
+    }
+    
+    class WildCardData{
+        
+    }
+    
+    class WildDrawFourCardData{
+        
+    }
+    
+    class CardList{
+        CardData[] cardDataList
+    }
+    <<abstract>> CardList
+
+    class GameCardDeck{
+        void DealCard(CardData cardData, PlayerHand playerhand)
+        void initGame(Player[] players)
+    }
+    
+    class PlayerHand{
+        void PlayCard(CardData cardData, PlayedCardDeck playedCardDeck)
+        void AddCard(CardData cardData)
+    }
+    
+    class PlayedCardDeck{
+        void AddCard(CardData cardData)
+    }
+    
+    CardData <|-- NumberCardData
+    CardData <|-- SkipCardData
+    CardData <|-- ReverseCardData
+    CardData <|-- DrawTwoCardData
+    CardData <|-- WildCardData
+    CardData <|-- WildDrawFourCardData
+    CardData <|-- CardDeck
+    CardData <|-- Player
+    CardList --o CardData
+    CardList <|-- GameCardDeck
+    CardList <|-- PlayerHand
+    CardList <|-- PlayedCardDeck
+    
+    
