@@ -5,11 +5,3 @@ public enum CardColor
     Blue,
     Yellow
 }
-
-public enum CardType
-{
-    Reverse,
-    Skip,
-    DrawTwo
-    
-}
