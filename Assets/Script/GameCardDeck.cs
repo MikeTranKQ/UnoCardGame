@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameCardDeck :  CardList
 {
@@ -18,7 +19,15 @@ public class GameCardDeck :  CardList
         }
         MoveCard(0, gamePlayedCardDeck);
     }
-        
+
+    public void Update()
+    {
+        if (CardDataList.Count == 0)
+        {
+            gameObject.GetComponent<Image>().enabled = false;
+        }
+    }
+
     private List<CardData> ShuffleCards(List<CardData> cards)
     {
         System.Random rng = new System.Random();
