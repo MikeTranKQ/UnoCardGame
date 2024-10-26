@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6732225f62e34915aa95d7aa36425394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardDataList: []
   cardPrefab: {fileID: 857438600790854552, guid: 0dd0a9b5dcab04993be1fdb4d9ffc0c9, type: 3}
 --- !u!1 &207219857
 GameObject:
@@ -219,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeeeb657fe5e4469a929ec4976b05105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardDataList: []
   playedCardList: []
 --- !u!1 &519420028
 GameObject:
@@ -580,6 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6732225f62e34915aa95d7aa36425394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardDataList: []
   cardPrefab: {fileID: 857438600790854552, guid: 0dd0a9b5dcab04993be1fdb4d9ffc0c9, type: 3}
 --- !u!1 &1573034804
 GameObject:
@@ -629,6 +632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6732225f62e34915aa95d7aa36425394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardDataList: []
   cardPrefab: {fileID: 857438600790854552, guid: 0dd0a9b5dcab04993be1fdb4d9ffc0c9, type: 3}
 --- !u!1 &1775588466
 GameObject:
@@ -678,7 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53ad77180d749328235f02db46f7c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardList:
+  CardDataList:
   - {fileID: 11400000, guid: 2f6d8961047b44c23a92f19cf1be3553, type: 2}
   - {fileID: 11400000, guid: 09946e3d0b2934706becde02b67d3d79, type: 2}
   - {fileID: 11400000, guid: 09946e3d0b2934706becde02b67d3d79, type: 2}
@@ -787,7 +791,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f93e08df67e54431eaafdbf2b78c50d9, type: 2}
   - {fileID: 11400000, guid: f93e08df67e54431eaafdbf2b78c50d9, type: 2}
   - {fileID: 11400000, guid: f93e08df67e54431eaafdbf2b78c50d9, type: 2}
-  playerList:
+  playerCardLists:
   - {fileID: 2063441856}
   - {fileID: 1391934578}
   - {fileID: 1573034806}
@@ -841,6 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6732225f62e34915aa95d7aa36425394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardDataList: []
   cardPrefab: {fileID: 857438600790854552, guid: 0dd0a9b5dcab04993be1fdb4d9ffc0c9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

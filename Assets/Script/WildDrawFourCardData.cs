@@ -7,11 +7,4 @@ public class WildDrawFourCardData : CardData
     {
         return true;
     }
-    public override void play(CardData lastCardData)
-    {
-        if (canPlay(lastCardData))
-        {
-            Debug.Log("play!");
-        }
-    }
 }

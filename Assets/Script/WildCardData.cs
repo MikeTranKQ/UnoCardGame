@@ -7,11 +7,4 @@ public class WildCardData : CardData
     {
         return true;
     }
-    public override void play(CardData lastCardData)
-    {
-        if (canPlay(lastCardData))
-        {
-            Debug.Log("play!");
-        }
-    }
 }

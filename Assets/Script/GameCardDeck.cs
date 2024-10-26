@@ -2,23 +2,21 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameCardDeck : MonoBehaviour
+public class GameCardDeck :  CardList
 {
-    [SerializeField] private List<CardData> cardList;
-    [SerializeField] private List<Player> playerList;
+    [SerializeField] private List<PlayerCardList> playerCardLists;
     [SerializeField] private GamePlayedCardDeck gamePlayedCardDeck;
     private void Start()
     {
-        List<CardData> shuffledCards = ShuffleCards(cardList);
-        for (int i = 0; i < playerList.Count; i++)
+        CardDataList = ShuffleCards((CardDataList));
+        for (int i = 0; i < playerCardLists.Count; i++)
         {
-            Debug.Log($"Dealing cards to player {i + 1}");
             for (int j = 0; j < 7; j++)
             {
-                playerList[i].AddCard(shuffledCards[i * 7 + j], new Vector3(j*100, 0, 0));
+                MoveCard(0, playerCardLists[i]);
             }
         }
-        gamePlayedCardDeck.AddPlayedCard(shuffledCards[28]);
+        MoveCard(0, gamePlayedCardDeck);
     }
         
     private List<CardData> ShuffleCards(List<CardData> cards)

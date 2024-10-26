@@ -35,12 +35,4 @@ public class NumberCardData : CardData
 
         return false;
     }
-    
-    public override void play(CardData lastCardData)
-    {
-        if (canPlay(lastCardData))
-        {
-            Debug.Log("play!");
-        }
-    }
 }

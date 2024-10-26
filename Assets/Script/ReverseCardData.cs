@@ -12,15 +12,7 @@ public class ReverseCardData : CardData
         }
         if (lastCardData is ReverseCardData lastReverseCardData)
         {
-            return lastReverseCardData.Color == Color;
-        }
-        if (lastCardData is SkipCardData lastSkipCardData)
-        {
-            return lastSkipCardData.Color == Color;
-        }
-        if (lastCardData is DrawTwoCardData lastDrawTwoCardData)
-        {
-            return lastDrawTwoCardData.Color == Color;
+            return true;
         }
         if (lastCardData is WildCardData)
         {
@@ -32,12 +24,5 @@ public class ReverseCardData : CardData
         }
 
         return false;
-    }
-    public override void play(CardData lastCardData)
-    {
-        if (canPlay(lastCardData))
-        {
-            Debug.Log("play!");
-        }
     }
 }
