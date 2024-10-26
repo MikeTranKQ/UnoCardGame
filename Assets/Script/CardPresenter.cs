@@ -14,6 +14,7 @@ public class CardPresenter : MonoBehaviour, IPointerUpHandler, IPointerDownHandl
     private void Start()
     {
         _gamePlayedCardDeck = GameObject.Find("PlayedDeck").GetComponent<GamePlayedCardDeck>();
+        _gamePresenter = GameObject.Find("GameManager").GetComponent<GamePresenter>();
     }
 
     public void ShowImage()
@@ -38,9 +39,14 @@ public class CardPresenter : MonoBehaviour, IPointerUpHandler, IPointerDownHandl
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (_playerCardList != _gamePresenter.CurrentPlayer)
+        {
+            return;
+        }
         if (_cardData.canPlay(_gamePlayedCardDeck.GetLastCardData()))
         {
             _playerCardList.MoveCard(_index, _gamePlayedCardDeck);
+            _gamePresenter.NextPlayer();
         }
     }
 

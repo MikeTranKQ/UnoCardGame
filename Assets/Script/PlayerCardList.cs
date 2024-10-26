@@ -30,7 +30,7 @@ public class PlayerCardList : CardList
         cardPresenter.SetCardData(cardData);
         cardPresenter.SetPlayerCardList(this);
         cardPresenter.SetIndex(index);
-        if (gameObject.CompareTag("Player"))
+        if (gameObject)
         {
             cardPresenter.ShowImage();
         }

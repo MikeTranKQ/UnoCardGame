@@ -1,6 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePresenter: MonoBehaviour
+public class GamePresenter : MonoBehaviour
 {
-    [SerializeField] public CardData LastCardData;
+    [SerializeField] private List<PlayerCardList> playerCardLists;
+    public PlayerCardList CurrentPlayer;
+
+    public void NextPlayer()
+    {
+        int index = playerCardLists.IndexOf(CurrentPlayer);
+        CurrentPlayer = playerCardLists[(index + 1) % playerCardLists.Count];
+    }
 }

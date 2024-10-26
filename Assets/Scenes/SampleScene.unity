@@ -504,7 +504,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bf55187e054b988db71a2d23f36ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LastCardData: {fileID: 0}
+  playerCardLists:
+  - {fileID: 2063441856}
+  - {fileID: 1391934578}
+  - {fileID: 1573034806}
+  - {fileID: 168570303}
+  CurrentPlayer: {fileID: 2063441856}
 --- !u!1 &932192398
 GameObject:
   m_ObjectHideFlags: 0
