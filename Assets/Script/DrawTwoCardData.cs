@@ -11,7 +11,15 @@ public class DrawTwoCardData : CardData
         {
             return lastNumberCardData.Color == Color;
         }
-        if (lastCardData is DrawTwoCardData lastDrawTwoCardData)
+        if (lastCardData is DrawTwoCardData)
+        {
+            return true;
+        }
+        if (lastCardData is SkipCardData)
+        {
+            return true;
+        }
+        if (lastCardData is ReverseCardData)
         {
             return true;
         }

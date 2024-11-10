@@ -11,7 +11,15 @@ public class SkipCardData : CardData
         {
             return lastNumberCardData.Color == Color;
         }
-        if (lastCardData is SkipCardData lastSkipCardData)
+        if (lastCardData is SkipCardData)
+        {
+            return true;
+        }
+        if (lastCardData is ReverseCardData)
+        {
+            return true;
+        }
+        if (lastCardData is DrawTwoCardData)
         {
             return true;
         }

@@ -10,7 +10,15 @@ public class ReverseCardData : CardData
         {
             return lastNumberCardData.Color == Color;
         }
-        if (lastCardData is ReverseCardData lastReverseCardData)
+        if (lastCardData is ReverseCardData)
+        {
+            return true;
+        }
+        if (lastCardData is SkipCardData)
+        {
+            return true;
+        }
+        if (lastCardData is DrawTwoCardData)
         {
             return true;
         }
