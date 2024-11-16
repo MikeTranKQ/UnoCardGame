@@ -12,6 +12,7 @@ public class GameCardDeck :  CardList, IPointerUpHandler, IPointerDownHandler
     private GamePresenter _gamePresenter;
     private void Start()
     {
+        _gamePresenter = GameObject.Find("GameManager").GetComponent<GamePresenter>();
         CardDataList = ShuffleCards((CardDataList));
         for (int i = 0; i < playerCardLists.Count; i++)
         {
@@ -25,10 +26,11 @@ public class GameCardDeck :  CardList, IPointerUpHandler, IPointerDownHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        // if (_gamePresenter.CurrentPlayer == playerCardLists[0])
-        // {
-        //     MoveCard(0, playerCardLists[0]);
-        // }
+        if (_gamePresenter.CurrentPlayer == playerCardLists[0])
+        {
+            MoveCard(0, playerCardLists[0]);
+            _gamePresenter.NextPlayer();
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
