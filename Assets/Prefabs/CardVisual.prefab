@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9146297802013847242}
   - component: {fileID: 5448039055049914803}
   - component: {fileID: 1029423162483855924}
+  - component: {fileID: 1326644246890414975}
   m_Layer: 0
   m_Name: CardVisual
   m_TagString: Untagged
@@ -75,3 +76,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1326644246890414975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235431560528095941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb771efad724013b693029bb1f3ec68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardPlaceholder: {fileID: 857438600790854552, guid: 0dd0a9b5dcab04993be1fdb4d9ffc0c9, type: 3}
+  _cardPlaceholderTransform: {fileID: 6296848238535941822, guid: 0dd0a9b5dcab04993be1fdb4d9ffc0c9, type: 3}

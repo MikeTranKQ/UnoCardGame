@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GameCardDeck :  CardList
+public class GameCardDeck :  CardList, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField] private List<PlayerCardList> playerCardLists;
     [SerializeField] private GamePlayedCardDeck gamePlayedCardDeck;
+    private GamePresenter _gamePresenter;
     private void Start()
     {
         CardDataList = ShuffleCards((CardDataList));
@@ -20,14 +23,18 @@ public class GameCardDeck :  CardList
         MoveCard(0, gamePlayedCardDeck);
     }
 
-    public void Update()
+    public void OnPointerUp(PointerEventData eventData)
     {
-        if (CardDataList.Count == 0)
-        {
-            gameObject.GetComponent<Image>().enabled = false;
-        }
+        // if (_gamePresenter.CurrentPlayer == playerCardLists[0])
+        // {
+        //     MoveCard(0, playerCardLists[0]);
+        // }
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+    }
+        
     private List<CardData> ShuffleCards(List<CardData> cards)
     {
         System.Random rng = new System.Random();

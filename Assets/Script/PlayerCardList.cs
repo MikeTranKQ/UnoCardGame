@@ -8,7 +8,7 @@ public class PlayerCardList : CardList
     [SerializeField] private GameObject cardVisualPrefab;
     [SerializeField] private Transform _cardPlaceholdersContainerTransform;
     [SerializeField] private Transform _cardViualsContainerTransform;
-
+    
     protected override void UpdateView()
     {
         foreach (Transform child in _cardPlaceholdersContainerTransform)
@@ -35,16 +35,18 @@ public class PlayerCardList : CardList
         cardPlaceholderInstance.transform.localRotation = Quaternion.identity;
         cardPlaceholderInstance.transform.localScale = Vector3.one;
 
-        CardPresenter cardPlaceHolderPresenter = cardPlaceholderInstance.GetComponent<CardPresenter>();
-        cardPlaceHolderPresenter.SetCardData(cardData);
-        cardPlaceHolderPresenter.SetPlayerCardList(this);
-        cardPlaceHolderPresenter.SetIndex(index);
-
         GameObject cardVisualInstance = Instantiate(cardVisualPrefab, _cardViualsContainerTransform);
         cardVisualInstance.transform.SetParent(_cardViualsContainerTransform);
         cardVisualInstance.transform.localPosition = position;
         cardVisualInstance.transform.localRotation = Quaternion.identity;
         cardVisualInstance.transform.localScale = Vector3.one;
+        
+        CardVisual cardVisual = cardVisualInstance.GetComponent<CardVisual>();
+        cardVisual.SetCardData(cardData);
+        cardVisual.SetPlayerCardList(this);
+        cardVisual.SetIndex(index);
+
+        cardVisual.CardPlaceholderTransform = cardPlaceholderInstance.transform;
 
         cardVisualInstance.GetComponent<Image>().sprite = cardData.Image;
         
