@@ -9,6 +9,7 @@ public class CardVisual: MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     private CardData _cardData;
     private GamePresenter _gamePresenter;
     private GamePlayedCardDeck _gamePlayedCardDeck;
+    private GameCardDeck _gameCardDeck;
     private PlayerCardList _playerCardList;
     private int _index;
     public Transform CardPlaceholderTransform;
@@ -16,6 +17,7 @@ public class CardVisual: MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         _gamePlayedCardDeck = GameObject.Find("PlayedDeck").GetComponent<GamePlayedCardDeck>();
         _gamePresenter = GameObject.Find("GameManager").GetComponent<GamePresenter>();
+        _gameCardDeck = GameObject.Find("Deck").GetComponent<GameCardDeck>();
     }
 
     private void Update()
@@ -55,6 +57,7 @@ public class CardVisual: MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         }
         if (_cardData.canPlay(_gamePlayedCardDeck.GetLastCardData()))
         {
+            _cardData.HandleOnPlay(_gamePresenter.GetNextPlayer(), _gameCardDeck);
             _playerCardList.MoveCard(_index, _gamePlayedCardDeck);
             _gamePresenter.NextPlayer();
         }

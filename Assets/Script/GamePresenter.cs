@@ -6,9 +6,13 @@ public class GamePresenter : MonoBehaviour
     [SerializeField] private List<PlayerCardList> playerCardLists;
     public PlayerCardList CurrentPlayer;
 
-    public void NextPlayer()
+    public PlayerCardList GetNextPlayer()
     {
         int index = playerCardLists.IndexOf(CurrentPlayer);
-        CurrentPlayer = playerCardLists[(index + 1) % playerCardLists.Count];
+        return playerCardLists[(index + 1) % playerCardLists.Count];
+    }
+    public void NextPlayer()
+    {
+        CurrentPlayer = GetNextPlayer();
     }
 }

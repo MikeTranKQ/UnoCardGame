@@ -4,7 +4,11 @@ using UnityEngine;
 public class DrawTwoCardData : CardData
 {
     public CardColor Color;
-
+    public override void HandleOnPlay(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck)
+    {
+        gameCardDeck.MoveCard(0, nextPlayerCardList);
+        gameCardDeck.MoveCard(0, nextPlayerCardList);
+    }
     public override bool canPlay(CardData lastCardData)
     {
         if (lastCardData is NumberCardData lastNumberCardData)
