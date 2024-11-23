@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CD_", menuName = "Card Data/Draw Two", order = 0)]
 public class DrawTwoCardData : CardData
 {
-    public CardColor Color;
     public override void HandleOnPlayDrawCard(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck)
     {
         gameCardDeck.MoveCard(0, nextPlayerCardList);

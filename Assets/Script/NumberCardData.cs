@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CD_", menuName = "Card Data/Number", order = 0)]
 public class NumberCardData : CardData
 {
-    public CardColor Color;
     public int Number;
 
     public override bool canPlay(CardData lastCardData)

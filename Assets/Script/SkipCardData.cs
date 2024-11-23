@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CD_", menuName = "Card Data/Skip", order = 0)]
 public class SkipCardData : CardData
 {
-    public CardColor Color;
 
     public override void HandleOnPlayControlTurn(PlayerCardList nextPlayerCardList, GamePresenter gamePresenter)
     {
