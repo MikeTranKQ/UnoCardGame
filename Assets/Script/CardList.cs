@@ -10,7 +10,7 @@ public class CardList : MonoBehaviour
         return CardDataList.Count;
     }
 
-    private void AddCard(CardData cardData)
+    protected virtual void AddCard(CardData cardData)
     {
         CardDataList.Add(cardData);
         UpdateView();

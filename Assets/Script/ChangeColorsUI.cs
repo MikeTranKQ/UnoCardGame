@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class ChangeColorsUI : MonoBehaviour
 {
     [SerializeField] private Button[] _colorOptionsButtonsList;
-
+    [SerializeField] private GameObject _changeColorsCanvas;
+    [SerializeField] private GamePlayedCardDeck _gamePlayedCardDeck;
     private void Start()
     {
         for (int i = 0; i < 4; i++)
@@ -13,25 +14,9 @@ public class ChangeColorsUI : MonoBehaviour
             _colorOptionsButtonsList[i].onClick.AddListener(
                 () =>
                 {
-                    if (index == 0)
-                    {
-                        Debug.Log("Red");
-                    }
-
-                    if (index == 1)
-                    {
-                        Debug.Log("Green");
-                    }
-
-                    if (index == 2)
-                    {
-                        Debug.Log("Blue");
-                    }
-
-                    if (index == 3)
-                    {
-                        Debug.Log("Yellow");
-                    }
+                    CardColor selectedColor = (CardColor)index;
+                    _gamePlayedCardDeck.GetLastCardData().Color = selectedColor;
+                    _changeColorsCanvas.gameObject.SetActive(false);
                 }
             );    
         }

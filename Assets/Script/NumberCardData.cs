@@ -23,15 +23,14 @@ public class NumberCardData : CardData
         {
             return lastDrawTwoCardData.Color == Color;
         }
-        if (lastCardData is WildCardData)
+        if (lastCardData is WildCardData lastWildCardData)
         {
-            return true;
+            return lastWildCardData.Color == Color;
         }
-        if (lastCardData is WildDrawFourCardData)
+        if (lastCardData is WildDrawFourCardData lastWildDrawFourCardData)
         {
-            return true;
+            return lastWildDrawFourCardData.Color == Color;
         }
-
         return false;
     }
 }

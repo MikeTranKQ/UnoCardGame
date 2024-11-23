@@ -21,7 +21,13 @@ public class GameCardDeck :  CardList, IPointerUpHandler, IPointerDownHandler
                 MoveCard(0, playerCardLists[i]);
             }
         }
-        MoveCard(0, gamePlayedCardDeck);
+
+        int index = 0;
+        while (!(gamePlayedCardDeck.GetLastCardDataIndex(index) is NumberCardData))
+        {
+            index++;
+        } 
+        MoveCard(index, gamePlayedCardDeck);
     }
 
     public void OnPointerUp(PointerEventData eventData)

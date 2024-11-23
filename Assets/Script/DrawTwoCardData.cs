@@ -18,23 +18,14 @@ public class DrawTwoCardData : CardData
         {
             return true;
         }
-        if (lastCardData is SkipCardData)
+        if (lastCardData is SkipCardData lastSkipCardData)
         {
-            return true;
+            return lastSkipCardData.Color == Color;
         }
-        if (lastCardData is ReverseCardData)
+        if (lastCardData is ReverseCardData lastReverseCardData)
         {
-            return true;
+            return lastReverseCardData.Color == Color;
         }
-        if (lastCardData is WildCardData)
-        {
-            return true;
-        }
-        if (lastCardData is WildDrawFourCardData)
-        {
-            return true;
-        }
-
         return false;
     }
 }

@@ -19,23 +19,22 @@ public class SkipCardData : CardData
         {
             return true;
         }
-        if (lastCardData is ReverseCardData)
+        if (lastCardData is DrawTwoCardData lastDrawTwoCardData)
         {
-            return true;
+            return lastDrawTwoCardData.Color == Color;
         }
-        if (lastCardData is DrawTwoCardData)
+        if (lastCardData is ReverseCardData lastReverseCardData)
         {
-            return true;
+            return lastReverseCardData.Color == Color;
         }
-        if (lastCardData is WildCardData)
+        if (lastCardData is WildCardData lastWildCardData)
         {
-            return true;
+            return lastWildCardData.Color == Color;
         }
-        if (lastCardData is WildDrawFourCardData)
+        if (lastCardData is WildDrawFourCardData lastWildDrawFourCardData)
         {
-            return true;
+            return lastWildDrawFourCardData.Color == Color;
         }
-
         return false;
     }
 }
