@@ -57,7 +57,8 @@ public class CardVisual: MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         }
         if (_cardData.canPlay(_gamePlayedCardDeck.GetLastCardData()))
         {
-            _cardData.HandleOnPlay(_gamePresenter.GetNextPlayer(), _gameCardDeck);
+            _cardData.HandleOnPlayControlTurn(_gamePresenter.GetNextPlayer(), _gamePresenter);
+            _cardData.HandleOnPlayDrawCard(_gamePresenter.GetNextPlayer(), _gameCardDeck);
             _playerCardList.MoveCard(_index, _gamePlayedCardDeck);
             _gamePresenter.NextPlayer();
         }

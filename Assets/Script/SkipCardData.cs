@@ -5,9 +5,9 @@ public class SkipCardData : CardData
 {
     public CardColor Color;
 
-    public override void HandleOnPlay(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck)
+    public override void HandleOnPlayControlTurn(PlayerCardList nextPlayerCardList, GamePresenter gamePresenter)
     {
-        
+        gamePresenter.NextPlayer();
     }
     
     public override bool canPlay(CardData lastCardData)

@@ -4,6 +4,12 @@ using UnityEngine;
 public class ReverseCardData : CardData
 {
     public CardColor Color;
+
+    public override void HandleOnPlayControlTurn(PlayerCardList nextPlayerCardList, GamePresenter gamePresenter)
+    {
+        gamePresenter.ReverseNextPlayer();
+    }
+    
     public override bool canPlay(CardData lastCardData)
     {
         if (lastCardData is NumberCardData lastNumberCardData)

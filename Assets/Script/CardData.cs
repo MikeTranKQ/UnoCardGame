@@ -5,7 +5,11 @@ public abstract class CardData : ScriptableObject
     public Sprite Image;
     public abstract bool canPlay(CardData lastCardData);
 
-    public virtual void HandleOnPlay(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck)
+    public virtual void HandleOnPlayDrawCard(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck)
+    {
+    }
+    
+    public virtual void HandleOnPlayControlTurn(PlayerCardList nextPlayerCardList, GamePresenter gamePresenter)
     {
     }
 }
