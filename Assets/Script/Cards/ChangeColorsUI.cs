@@ -6,6 +6,7 @@ public class ChangeColorsUI : MonoBehaviour
     [SerializeField] private Button[] _colorOptionsButtonsList;
     [SerializeField] private GameObject _changeColorsCanvas;
     [SerializeField] private GamePlayedCardDeck _gamePlayedCardDeck;
+
     private void Start()
     {
         for (int i = 0; i < 4; i++)
@@ -18,8 +19,7 @@ public class ChangeColorsUI : MonoBehaviour
                     _gamePlayedCardDeck.GetLastCardData().Color = selectedColor;
                     _changeColorsCanvas.gameObject.SetActive(false);
                 }
-            );    
+            );
         }
     }
 }
-                  

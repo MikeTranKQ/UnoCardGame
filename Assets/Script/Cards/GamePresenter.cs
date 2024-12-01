@@ -19,9 +19,9 @@ public class GamePresenter : MonoBehaviour
     {
         CurrentPlayer = GetNextPlayer();
     }
-    
+
     public void ReverseNextPlayer()
     {
-        direction *= -1; 
+        direction *= -1;
     }
 }

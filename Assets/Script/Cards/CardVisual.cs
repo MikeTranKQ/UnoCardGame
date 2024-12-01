@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class CardVisual: MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+public class CardVisual : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     private CardData _cardData;
     private GamePresenter _gamePresenter;
@@ -13,6 +13,7 @@ public class CardVisual: MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     private PlayerCardList _playerCardList;
     private int _index;
     public Transform CardPlaceholderTransform;
+
     private void Start()
     {
         _gamePlayedCardDeck = GameObject.Find("PlayedDeck").GetComponent<GamePlayedCardDeck>();
@@ -22,7 +23,7 @@ public class CardVisual: MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     private void Update()
     {
-        if (CardPlaceholderTransform!= null)
+        if (CardPlaceholderTransform != null)
         {
             transform.position = CardPlaceholderTransform.position;
             transform.rotation = CardPlaceholderTransform.rotation;
@@ -55,7 +56,8 @@ public class CardVisual: MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         {
             return;
         }
-        if (_cardData.canPlay(_gamePlayedCardDeck.GetLastCardData()))
+
+        if (_cardData.CanPlay(_gamePlayedCardDeck.GetLastCardData()))
         {
             _cardData.HandleOnPlayControlTurn(_gamePresenter.GetNextPlayer(), _gamePresenter);
             _cardData.HandleOnPlayDrawCard(_gamePresenter.GetNextPlayer(), _gameCardDeck);

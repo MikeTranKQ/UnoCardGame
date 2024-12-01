@@ -5,11 +5,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GameCardDeck :  CardList, IPointerUpHandler, IPointerDownHandler
+public class GameCardDeck : CardList, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField] private List<PlayerCardList> playerCardLists;
     [SerializeField] private GamePlayedCardDeck gamePlayedCardDeck;
     private GamePresenter _gamePresenter;
+
     private void Start()
     {
         _gamePresenter = GameObject.Find("GameManager").GetComponent<GamePresenter>();
@@ -43,7 +44,7 @@ public class GameCardDeck :  CardList, IPointerUpHandler, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
     }
-        
+
     private List<CardData> ShuffleCards(List<CardData> cards)
     {
         System.Random rng = new System.Random();
@@ -53,6 +54,7 @@ public class GameCardDeck :  CardList, IPointerUpHandler, IPointerDownHandler
             int k = rng.Next(n--);
             (cards[n], cards[k]) = (cards[k], cards[n]);
         }
+
         return cards;
     }
 }
