@@ -7,13 +7,20 @@ using UnityEngine.UI;
 
 public class GameCardDeck : CardList, IPointerUpHandler, IPointerDownHandler
 {
+    public static GameCardDeck Instance;
+
     [SerializeField] private List<PlayerCardList> playerCardLists;
     [SerializeField] private GamePlayedCardDeck gamePlayedCardDeck;
     private GamePresenter _gamePresenter;
 
+    public void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
-        _gamePresenter = GameObject.Find("GameManager").GetComponent<GamePresenter>();
+        _gamePresenter = GamePresenter.Instance;
         CardDataList = ShuffleCards((CardDataList));
         for (int i = 0; i < playerCardLists.Count; i++)
         {

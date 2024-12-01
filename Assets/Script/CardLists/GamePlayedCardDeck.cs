@@ -5,7 +5,14 @@ using UnityEngine.UI;
 
 public class GamePlayedCardDeck : CardList
 {
+    public static GamePlayedCardDeck Instance;
+
     [SerializeField] private GameObject _changeColorsCanvas;
+
+    public void Awake()
+    {
+        Instance = this;
+    }
 
     public CardData GetLastCardData()
     {

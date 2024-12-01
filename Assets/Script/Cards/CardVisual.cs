@@ -16,9 +16,9 @@ public class CardVisual : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     private void Start()
     {
-        _gamePlayedCardDeck = GameObject.Find("PlayedDeck").GetComponent<GamePlayedCardDeck>();
-        _gamePresenter = GameObject.Find("GameManager").GetComponent<GamePresenter>();
-        _gameCardDeck = GameObject.Find("Deck").GetComponent<GameCardDeck>();
+        _gamePlayedCardDeck = GamePlayedCardDeck.Instance;
+        _gamePresenter = GamePresenter.Instance;
+        _gameCardDeck = GameCardDeck.Instance;
     }
 
     private void Update()

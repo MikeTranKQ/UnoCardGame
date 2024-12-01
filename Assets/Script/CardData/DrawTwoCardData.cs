@@ -33,6 +33,16 @@ public class DrawTwoCardData : CardData
             return lastReverseCardData.Color == Color;
         }
 
+        if (lastCardData is WildCardData lastWildCardData)
+        {
+            return lastWildCardData.Color == Color;
+        }
+
+        if (lastCardData is WildDrawFourCardData lastWildDrawFourCardData)
+        {
+            return lastWildDrawFourCardData.Color == Color;
+        }
+
         return false;
     }
 }

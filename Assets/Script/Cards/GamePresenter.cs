@@ -1,12 +1,20 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GamePresenter : MonoBehaviour
 {
+    public static GamePresenter Instance;
+    
     [SerializeField] private List<PlayerCardList> playerCardLists;
     public PlayerCardList CurrentPlayer;
 
     private int direction = 1;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public PlayerCardList GetNextPlayer()
     {

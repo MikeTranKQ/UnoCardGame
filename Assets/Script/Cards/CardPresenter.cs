@@ -13,7 +13,7 @@ public class CardPresenter : MonoBehaviour
 
     private void Start()
     {
-        _gamePlayedCardDeck = GameObject.Find("PlayedDeck").GetComponent<GamePlayedCardDeck>();
-        _gamePresenter = GameObject.Find("GameManager").GetComponent<GamePresenter>();
+        _gamePlayedCardDeck = GamePlayedCardDeck.Instance;
+        _gamePresenter = GamePresenter.Instance;
     }
 }
