@@ -23,10 +23,11 @@ public class GameCardDeck :  CardList, IPointerUpHandler, IPointerDownHandler
         }
 
         int index = 0;
-        while (!(gamePlayedCardDeck.GetLastCardDataIndex(index) is NumberCardData))
+        while (index < CardDataList.Count && !(CardDataList[index] is NumberCardData))
         {
             index++;
-        } 
+        }
+
         MoveCard(index, gamePlayedCardDeck);
     }
 
