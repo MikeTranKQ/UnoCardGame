@@ -1,26 +1,31 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.Serialization;
+using System.Collections;
 
 public class GamePresenter : MonoBehaviour
 {
     public static GamePresenter Instance;
-    
-    [SerializeField] private List<PlayerCardList> playerCardLists;
+    [SerializeField] public List<PlayerCardList> PlayerCardLists;
     public PlayerCardList CurrentPlayer;
-
-    private int direction = 1;
+    private int _direction = 1;
+    [SerializeField] private Canvas _gameCanvas;
+    [SerializeField] private Canvas _gameOverCanvas;
+    [SerializeField] private TextMeshProUGUI _gameOverMessageText;
 
     private void Awake()
     {
         Instance = this;
     }
+    
 
     public PlayerCardList GetNextPlayer()
     {
-        int index = playerCardLists.IndexOf(CurrentPlayer);
-        index = (index + direction + playerCardLists.Count) % playerCardLists.Count;
-        return playerCardLists[index];
+        int index = PlayerCardLists.IndexOf(CurrentPlayer);
+        index = (index + _direction + PlayerCardLists.Count) % PlayerCardLists.Count;
+        return PlayerCardLists[index];
     }
 
     public void NextPlayer()
@@ -30,6 +35,20 @@ public class GamePresenter : MonoBehaviour
 
     public void ReverseNextPlayer()
     {
-        direction *= -1;
+        _direction *= -1;
+    }
+    
+    public void CheckGameStart()
+    {
+        
+    }
+    public void CheckGameOver()
+    {
+        if (CurrentPlayer.GetCardCount() == 0)
+        {
+            _gameCanvas.gameObject.SetActive(false);
+            _gameOverCanvas.gameObject.SetActive(true);
+            _gameOverMessageText.text = "Congratulation! " + CurrentPlayer.gameObject.name + " is the winner!";
+        }
     }
 }

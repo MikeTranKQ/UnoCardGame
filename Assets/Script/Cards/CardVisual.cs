@@ -13,7 +13,7 @@ public class CardVisual : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     private PlayerCardList _playerCardList;
     private int _index;
     public Transform CardPlaceholderTransform;
-
+    
     private void Start()
     {
         _gamePlayedCardDeck = GamePlayedCardDeck.Instance;
@@ -49,7 +49,7 @@ public class CardVisual : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     {
         _index = index;
     }
-
+    
     public void OnPointerUp(PointerEventData eventData)
     {
         if (_playerCardList != _gamePresenter.CurrentPlayer)
@@ -60,8 +60,9 @@ public class CardVisual : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         if (_cardData.CanPlay(_gamePlayedCardDeck.GetLastCardData()))
         {
             _cardData.HandleOnPlayControlTurn(_gamePresenter.GetNextPlayer(), _gamePresenter);
-            _cardData.HandleOnPlayDrawCard(_gamePresenter.GetNextPlayer(), _gameCardDeck);
+            _cardData.HandleOnPlayDrawCard(_gamePresenter.GetNextPlayer(), _gameCardDeck, _gamePresenter);
             _playerCardList.MoveCard(_index, _gamePlayedCardDeck);
+            _gamePresenter.CheckGameOver();
             _gamePresenter.NextPlayer();
         }
     }

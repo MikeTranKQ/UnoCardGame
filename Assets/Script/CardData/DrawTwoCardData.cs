@@ -3,13 +3,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CD_", menuName = "Card Data/Draw Two", order = 0)]
 public class DrawTwoCardData : CardData
 {
-    public override void HandleOnPlayDrawCard(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck)
+    public override void HandleOnPlayDrawCard(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck, GamePresenter gamePresenter)
     {
         for (int i = 0; i < 2; i++)
         {
             gameCardDeck.MoveCard(0, nextPlayerCardList);
         }
+        gamePresenter.NextPlayer();
     }
+
 
     public override bool CanPlay(CardData lastCardData)
     {

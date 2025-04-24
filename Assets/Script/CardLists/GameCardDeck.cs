@@ -8,8 +8,6 @@ using UnityEngine.UI;
 public class GameCardDeck : CardList, IPointerUpHandler, IPointerDownHandler
 {
     public static GameCardDeck Instance;
-
-    [SerializeField] private List<PlayerCardList> playerCardLists;
     [SerializeField] private GamePlayedCardDeck gamePlayedCardDeck;
     private GamePresenter _gamePresenter;
 
@@ -22,11 +20,11 @@ public class GameCardDeck : CardList, IPointerUpHandler, IPointerDownHandler
     {
         _gamePresenter = GamePresenter.Instance;
         CardDataList = ShuffleCards((CardDataList));
-        for (int i = 0; i < playerCardLists.Count; i++)
+        for (int i = 0; i < _gamePresenter.PlayerCardLists.Count; i++)
         {
-            for (int j = 0; j < 7; j++)
+            for (int j = 0; j < 13; j++)
             {
-                MoveCard(0, playerCardLists[i]);
+                MoveCard(0, _gamePresenter.PlayerCardLists[i]);
             }
         }
 
@@ -41,9 +39,9 @@ public class GameCardDeck : CardList, IPointerUpHandler, IPointerDownHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (_gamePresenter.CurrentPlayer == playerCardLists[0])
+        if (_gamePresenter.CurrentPlayer == _gamePresenter.PlayerCardLists[0])
         {
-            MoveCard(0, playerCardLists[0]);
+            MoveCard(0, _gamePresenter.PlayerCardLists[0]);
             _gamePresenter.NextPlayer();
         }
     }

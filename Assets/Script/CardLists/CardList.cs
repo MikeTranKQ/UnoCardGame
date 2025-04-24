@@ -10,6 +10,10 @@ public class CardList : MonoBehaviour
         return CardDataList.Count;
     }
 
+    public CardData GetCardData(int index)
+    {
+        return CardDataList[index];
+    }
     protected virtual void AddCard(CardData cardData)
     {
         CardDataList.Add(cardData);

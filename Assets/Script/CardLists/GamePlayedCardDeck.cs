@@ -33,7 +33,14 @@ public class GamePlayedCardDeck : CardList
 
         return CardDataList[index];
     }
+    
+    public CardColor GetLastCardDataColor()
+    {
+        CardData lastCard = GetLastCardData();
+        return lastCard.Color;
+    }
 
+    
     protected override void AddCard(CardData cardData)
     {
         base.AddCard(cardData);

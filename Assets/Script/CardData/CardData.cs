@@ -7,7 +7,7 @@ public abstract class CardData : ScriptableObject
 
     public abstract bool CanPlay(CardData lastCardData);
 
-    public virtual void HandleOnPlayDrawCard(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck)
+    public virtual void HandleOnPlayDrawCard(PlayerCardList nextPlayerCardList, GameCardDeck gameCardDeck, GamePresenter gamePresenter)
     {
     }
 
